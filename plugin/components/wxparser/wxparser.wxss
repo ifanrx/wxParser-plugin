@@ -1,7 +1,3 @@
-/**
- * wxParser 基础样式
- */
-
 .wxParser-div,
 .wxParser-p,
 {

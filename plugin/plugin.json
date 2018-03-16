@@ -1,6 +1,6 @@
 {
   "publicComponents": {
-    "list": "components/list/list"
+    "wxparser": "components/wxparser/wxparser"
   },
   "main": "index.js"
 }

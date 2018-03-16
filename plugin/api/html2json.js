@@ -17,10 +17,9 @@ const removeDOCTYPE = (str) => {
 /**
  * HTML 内容转化为 JSON 格式的对象
  * @param  {String} html     HTML 内容
- * @param  {String} bindName 绑定的数据名
  * @return {Object}
  */
-const html2json = (html, bindName) => {
+const html2json = html => {
   html = removeDOCTYPE(html);
 
   // 节点缓冲区，与 htmlparser.js 中的 stack 对应，只存储非自闭和标签
@@ -126,8 +125,6 @@ const html2json = (html, bindName) => {
       // img 标签 添加额外数据
       if (node.tag === 'img') {
         node.imgIndex = results.images.length;
-        node.from = bindName;
-
         results.images.push(node);
         results.imageUrls.push(node.attr.src);
       }

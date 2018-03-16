@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "list": "plugin://myPlugin/list"
+    "wxparser": "plugin://myPlugin/wxparser"
   }
 }
