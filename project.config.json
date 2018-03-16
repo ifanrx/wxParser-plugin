@@ -1,0 +1,11 @@
+{
+	"miniprogramRoot": "./miniprogram",
+	"pluginRoot": "./plugin",
+	"compileType": "plugin",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx9d4d4ffa781ff3ac",
+	"projectname": "wxParser-plugin",
+	"condition": {}
+}
