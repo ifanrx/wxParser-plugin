@@ -1,0 +1,273 @@
+/**
+ * wxParser 基础样式
+ */
+
+.wxParser-div,
+.wxParser-p,
+{
+  word-break: break-all;
+  overflow: auto;
+  max-width: 100%;
+}
+
+.wxParser-inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.wxParser-div {
+  margin: 0;
+  padding: 0;
+}
+
+.wxParser-p {
+  margin: 5rpx 0;
+}
+
+.wxParser-br {
+  height: 1em;
+}
+
+.wxParser-h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.wxParser-h2 {
+  font-size: 1.5em;
+  margin: .75em 0;
+}
+
+.wxParser-h3 {
+  font-size: 1.17em;
+  margin: .83em 0;
+}
+
+.wxParser-h4 {
+  margin: 1.12em 0;
+}
+
+.wxParser-h5 {
+  font-size: .83em;
+  margin: 1.5em 0;
+}
+
+.wxParser-h6 {
+  font-size: .75em;
+  margin: 1.67em 0;
+}
+
+.wxParser-h1,
+.wxParser-h2,
+.wxParser-h3,
+.wxParser-h4,
+.wxParser-h5,
+.wxParser-h6,
+.wxParser-b,
+.wxParser-strong {
+  font-weight: bolder;
+}
+
+.wxParser-i,
+.wxParser-cite,
+.wxParser-em,
+.wxParser-var,
+.wxParser-address {
+  font-style: italic;
+}
+
+.wxParser-pre,
+.wxParser-tt,
+.wxParser-code,
+.wxParser-kbd,
+.wxParser-samp {
+  font-family: monospace;
+}
+
+.wxParser-pre {
+  white-space: pre;
+}
+
+.wxParser-big {
+  font-size: 1.17em
+}
+
+.wxParser-small,
+.wxParser-sub,
+.wxParser-sup {
+  font-size: .83em
+}
+
+.wxParser-sub {
+  vertical-align: sub;
+}
+
+.wxParser-sup {
+  vertical-align: super;
+}
+
+.wxParser-s,
+.wxParser-strike,
+.wxParser-del {
+  text-decoration: line-through;
+}
+
+.wxParser-strong,
+.wxParser-s {
+  display: inline;
+}
+
+.wxParser-u {
+  text-decoration: underline;
+}
+
+.wxParser-u {
+  text-decoration: underline;
+}
+
+.wxParser-a {
+  color: deepskyblue;
+  word-break: break-all;
+  overflow: auto;
+}
+
+.wxParser-video {
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.wxParser-video-video {
+  width: 100%;
+}
+
+.wxParser-audio {
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.wxParser-audio-audio {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.wxParser-img {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.wxParser-blockquote {
+  margin: 0;
+  padding: 8rpx 20rpx 8rpx 20rpx;
+  font-family: Courier, Calibri, "宋体";
+  background: #f5f5f5;
+  border-left: 3rpx solid #dbdbdb;
+}
+
+.wxParser-ul {
+  margin: 20rpx 10rpx;
+}
+
+.wxParser-li {
+  margin: 10rpx 0;
+}
+
+.wxParser-li,
+.wxParser-li-inner {
+  display: flex;
+  align-items: baseline;
+}
+
+.wxParser-li-text {
+  align-items: center;
+  line-height: 1em;
+}
+
+.wxParser-li-circle {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  margin-right: 12rpx;
+  border-radius: 50%;
+}
+
+.wxParser-li-square {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333;
+  margin-right: 5rpx;
+}
+
+.wxParser-li-ring {
+  display: inline-flex;
+  width: 10rpx;
+  height: 10rpx;
+  border: 2rpx solid #333;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 5rpx;
+}
+
+.wxParser-ol {
+  margin: 20rpx 10rpx;
+}
+
+.wxParser-ol-li {
+  margin: 10rpx 0;
+}
+
+.wxParser-ol-li,
+.wxParser-ol-li-inner {
+  display: flex;
+  align-items: baseline;
+}
+
+.wxParser-ol-li-text {
+  margin-right: 12rpx;
+  line-height: 1em;
+}
+
+.wxParser-hidden {
+  display: none;
+}
+
+.wxParser-tr {
+  display: flex;
+  border-right: 1rpx solid #e0e0e0;
+}
+
+.wxParser-th,
+.wxParser-td {
+  flex: 1;
+  padding: 5rpx;
+  font-size: 28rpx;
+  border-left: 1rpx solid #e0e0e0;
+  border-top: 1rpx solid #e0e0e0;
+  word-break: break-all;
+}
+
+.wxParser-tr:last-child {
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.wxParser-th {
+  background: #f0f0f0;
+}
+
+.wxParser-hr {
+  border: 1rpx solid #DDD;
+  margin: 20rpx 0;
+}
+
+.wxParser-pre, .wxParser-code {
+  margin: 5rpx 0;
+  padding: 10rpx 10rpx;
+  border-radius: 8rpx;
+  background: #f8f8f8;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  overflow-x: auto;
+}
