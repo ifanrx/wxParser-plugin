@@ -1,1 +1,2 @@
-<list />
+<button bind:tap="changeContent">change content</button>
+<wxparser rich-text="{{richText}}" bind:tapImg="tapWxParserImg" bind:tapLink="tapWxParserLink"></wxparser>
