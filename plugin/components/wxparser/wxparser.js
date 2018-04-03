@@ -6,26 +6,15 @@ Component({
     richText: {
       type: String,
       value: '',
-      observer: function (newVal, oldVal) {
-        this.setData({richTextNode: (parse(newVal)).nodes})
+      observer: function (richText) {
+        let parsedData = parse(richText)
+        this.setData({ richTextNode: parsedData.nodes })
+        tmpl.init.call(this, { imgUrls: parsedData.imageUrls })
       }
-    },
-    tapWxParserImg: {
-      type: Function,
-    },
-    tapWxParserLink: {
-      type: Function,
-    },
+    }
   },
 
   data: {
     richTextNode: ''
-  },
-
-  ready: function() {
-    tmpl.init.call(this, {
-      tapWxParserImg: this.tapWxParserImg,
-      tapWxParserLink: this.tapWxParserLink,
-    })
   }
 })
