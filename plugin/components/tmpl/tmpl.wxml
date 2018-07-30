@@ -28,7 +28,7 @@
 </template>
 <template name="wxParserText">
   <view class="wxParserText wxParser-inline" style="{{item.styleStr}}">
-    <block wx:if="{{item.node == 'text'}}">{{item.text}}</block>
+    <block wx:if="{{item.node == 'text'}}"><text selectable="true">{{item.text}}</text></block>
   </view>
 </template>
 <template name="wxParser">
