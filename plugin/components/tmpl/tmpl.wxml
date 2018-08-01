@@ -1310,39 +1310,6 @@
     <template is="wxParserText" data="{{item}}"/>
   </block>
 </template>
-<template name="wxParserVideo">
-  <view class="{{item.classStr}} wxParser-{{item.tag}}" style="{{item.styleStr}}">
-    <video class="{{item.classStr}} wxParser-{{item.tag}}-video"
-      src="{{item.attr.src}}"
-      controls="{{item.attr.controls}}"
-      autoplay="{{item.attr.autoplay}}"
-      loop="{{item.attr.loop}}"
-      muted="{{item.attr.muted}}">
-    </video>
-  </view>
-</template>
-<template name="wxParserAudio">
-  <view class="{{item.classStr}} wxParser-{{item.tag}}" style="{{item.styleStr}}">
-    <audio class="{{item.classStr}} wxParser-{{item.tag}}-video"
-      src="{{item.attr.src}}"
-      controls="{{item.attr.controls}}"
-      autoplay="{{item.attr.autoplay}}"
-      loop="{{item.attr.loop}}"
-      muted="{{item.attr.muted}}"
-      poster="{{item.attr.poster}}"
-      name="{{item.attr.name}}"
-      author="{{item.attr.author}}">
-    </audio>
-  </view>
-</template>
-<template name="wxParserImg">
-  <image class="{{item.classStr}} wxParser-{{item.tag}}" data-from="{{item.from}}" data-src="{{item.attr.src}}"  data-idx="{{item.imgIndex}}"  src="{{item.attr.src}}" mode="widthFix"  bindtap="tapWxParserImg" style="{{item.styleStr}}"/>
-</template>
-<template name="wxParserText">
-  <view class="wxParserText wxParser-inline" style="{{item.styleStr}}">
-    <block wx:if="{{item.node == 'text'}}">{{item.text}}</block>
-  </view>
-</template>
 <template name="wxParser14">
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
