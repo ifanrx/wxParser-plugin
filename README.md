@@ -38,9 +38,17 @@
 
 ### 组件属性介绍
 
-- rich-text: 你的富文本字符串
-- bind:tapImg: 监听图片点击事件，通过 e.detail.src 可拿到图片地址
-- bind:tapLink: 监听链接点击事件，由于微信小程序插件的限制，目前无法在插件中使用 wx.navigato 等跳转链接接口，开发者如需使用链接跳转功能，可在该事件的监听函数中操作
+| 参数                | 类型     | 必填  |默认值 | 说明 |
+| :----------         | :---    | :--- | :--- |
+| rich-text           | String    | 否    | ''    | 你的富文本字符串 |
+| image-lazy-load     | Boolean   | 否    | false | 图片懒加载，设置小程序 image 标签的 lazy-load 属性 |
+| image-zoom          | Boolean   | 否    | true  | 图片点击放大，为 true 时，富文本中所有的 image 标签在点击后都将放大 |
+| bind:tapImg         | Function  | 否    | -     | 监听图片点击事件，通过 e.detail.src 可拿到图片地址 |
+| bind:tapLink        | Function  | 否    | -     | 监听链接点击事件，由于微信小程序插件的限制，目前无法在插件中使用 wx.navigato 等跳转链接接口，开发者如需使用链接跳转功能，可在该事件的监听函数中操作 |
+| bind:bindImgLoad    | Function  | 否    | -     | 监听图片加载事件，当图片载入完毕时触发，通过 e.detail.src 可拿到图片地址 |
+| bind:ready          | Function  | 否    | -     | 组件生命周期： ready |
+| bind:attached       | Function  | 否    | -     | 组件生命周期： attached |
+| bind:detached       | Function  | 否    | -     | 组件生命周期： detached |
 
 具体使用
 
