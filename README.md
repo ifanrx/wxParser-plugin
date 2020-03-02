@@ -39,7 +39,7 @@
 ### 组件属性介绍
 
 | 参数                | 类型     | 必填  |默认值 | 说明 |
-| :----------         | :---    | :--- | :--- |
+| :----------         | :---    | :--- | :--- | :--- |
 | rich-text           | String    | 否    | ''    | 你的富文本字符串 |
 | image-lazy-load     | Boolean   | 否    | false | 图片懒加载，设置小程序 image 标签的 lazy-load 属性 |
 | image-zoom          | Boolean   | 否    | true  | 图片点击放大，为 true 时，富文本中所有的 image 标签在点击后都将放大 |
