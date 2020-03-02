@@ -40,7 +40,7 @@
 
 | 参数                | 类型     | 必填  |默认值 | 说明 |
 | :----------         | :---    | :--- | :--- | :--- |
-| rich-text           | String    | 否    | ''    | 你的富文本字符串 |
+| rich-text           | String    | 是    | ''    | 你的富文本字符串 |
 | image-lazy-load     | Boolean   | 否    | false | 图片懒加载，设置小程序 image 标签的 lazy-load 属性 |
 | image-zoom          | Boolean   | 否    | true  | 图片点击放大，为 true 时，富文本中所有的 image 标签在点击后都将放大 |
 | bind:tapImg         | Function  | 否    | -     | 监听图片点击事件，通过 e.detail.src 可拿到图片地址 |
