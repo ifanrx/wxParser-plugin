@@ -5,7 +5,7 @@ function init(config) {
   _this.tapWxParserImg = e => {
     let src = e.currentTarget.dataset.src
 
-    if(src && _this.data.imageZoom) {
+    if(src && _this.data.imagePreview) {
       wx.previewImage({
         current: src,
         urls: config.imgUrls
