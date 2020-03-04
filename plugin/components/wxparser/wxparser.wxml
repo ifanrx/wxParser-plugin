@@ -1,4 +1,4 @@
 <import src="../tmpl/tmpl.wxml"/>
-<view class="wxParser">
-  <template is="wxParser" data="{{wxParserData: richTextNode}}"/>
+<view class="wxParser container-class">
+  <template is="wxParser" data="{{wxParserData: richTextNode, imageLazyLoad}}"/>
 </view>

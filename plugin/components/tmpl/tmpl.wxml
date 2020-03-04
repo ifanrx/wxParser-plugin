@@ -24,10 +24,10 @@
   </view>
 </template>
 <template name="wxParserImg">
-  <image class="{{item.classStr}} wxParser-{{item.tag}}" data-from="{{item.from}}" data-src="{{item.attr.src}}"  data-idx="{{item.imgIndex}}"  src="{{item.attr.src}}" mode="widthFix"  bindtap="tapWxParserImg" style="{{item.styleStr}}"/>
+  <image class="{{item.classStr}} wxParser-{{item.tag}}" data-from="{{item.from}}" data-src="{{item.attr.src}}"  data-idx="{{item.imgIndex}}" lazy-load="{{item.imageLazyLoad}}" src="{{item.attr.src}}" mode="widthFix"  bindtap="tapWxParserImg" bindload="bindImgLoad" style="{{item.styleStr}}"/>
 </template>
 <template name="wxParserText">
-  <view class="wxParserText wxParser-inline" style="{{item.styleStr}}">
+  <view class="{{item.classStr}} wxParserText wxParser-inline" style="{{item.styleStr}}">
     <block wx:if="{{item.node == 'text'}}"><text selectable="true">{{item.text}}</text></block>
   </view>
 </template>
