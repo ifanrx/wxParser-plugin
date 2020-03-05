@@ -1,2 +1,12 @@
 <button bind:tap="changeContent">change content</button>
-<wxparser rich-text="{{richText}}" bind:tapImg="tapWxParserImg" bind:tapLink="tapWxParserLink"></wxparser>
+<wxparser rich-text="{{richText}}"
+  image-lazy-load
+  image-zoom="{{false}}"
+  bind:tapImg="tapWxParserImg"
+  bind:tapLink="tapWxParserLink"
+  bind:bindImgLoad="wxParserImgLoad"
+  bind:ready="wxParserReady"
+  bind:attached="wxParserAttached"
+  bind:detached="wxParserDetached"
+  class="parser"></wxparser>
+<view>adljasdkfj<br />asdlkjlasd</view>
