@@ -1,6 +1,5 @@
 .wxParser-div,
-.wxParser-p,
-{
+.wxParser-p {
   word-break: break-all;
   overflow: auto;
   max-width: 100%;
@@ -86,13 +85,13 @@
 }
 
 .wxParser-big {
-  font-size: 1.17em
+  font-size: 1.17em;
 }
 
 .wxParser-small,
 .wxParser-sub,
 .wxParser-sup {
-  font-size: .83em
+  font-size: .83em;
 }
 
 .wxParser-sub {
