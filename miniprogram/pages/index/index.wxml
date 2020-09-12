@@ -1,7 +1,7 @@
 <button bind:tap="changeContent">change content</button>
 <wxparser rich-text="{{richText}}"
   image-lazy-load
-  image-zoom="{{false}}"
+  image-preview="{{false}}"
   bind:tapImg="tapWxParserImg"
   bind:tapLink="tapWxParserLink"
   bind:bindImgLoad="wxParserImgLoad"

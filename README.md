@@ -9,7 +9,7 @@
 
 1. 在微信小程序管理后台，按 APPID `wx9d4d4ffa781ff3ac` 搜索到该插件，并点击添加，即可在代码中使用 `wxParser-plugin` 了
 
-2. 在 `app.json` 中声明插件引入。目前插件版本为 `0.3.0`，`provider` 为该插件的 APPID，`wxparserPlugin` 为自定义的插件名称。
+2. 在 `app.json` 中声明插件引入。目前插件版本为 `0.3.1`，`provider` 为该插件的 APPID，`wxparserPlugin` 为自定义的插件名称。
 
 ```json
 "plugins": {
