@@ -9,4 +9,3 @@
   bind:attached="wxParserAttached"
   bind:detached="wxParserDetached"
   class="parser"></wxparser>
-<view>adljasdkfj<br />asdlkjlasd</view>

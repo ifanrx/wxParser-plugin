@@ -1,5 +1,5 @@
-const utils = require('./utils');
-const makeMap = utils.makeMap;
+const utils = require('./utils')
+const makeMap = utils.makeMap
 
 module.exports = {
   empty: makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr'),
@@ -8,4 +8,4 @@ module.exports = {
   closeSelf: makeMap('br,hr'),
   fillAttrs: makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected'),
   special: makeMap('script,style')
-};
+}

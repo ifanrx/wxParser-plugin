@@ -1,7 +1,7 @@
 var plugin = requirePlugin("myPlugin")
 Page({
   data: {
-    richText: ''
+    richText: '',
   },
 
   onLoad: function() {
@@ -38,7 +38,7 @@ Page({
 
   changeContent: function() {
     this.setData({
-      richText: '<p style="text-align: center;"><img src="https://media.ifanrusercontent.com/media/user_files/hydrogen/d3/bd/d3bd4900a1ca1ed76e3bd39b9961084d3fe8234c-ba44bb070dd36bc3a6a0adbe1b4faa524673fe9b.jpg"/></p><p style="text-align: center;"><img src="https://cloud-minapp-7894.cloud.ifanrusercontent.com/1f3CQKqRSXpEXOhI.jpg" width="1453" height="1083"/></p>'
+      richText: '<p><br/></p><p>loop = true</p><p><br/></p><p><audio src="https://cloud-minapp-7894.cloud.ifanrusercontent.com/1f3C2EVAMRMLZkoO.mp3" controls="true" loop="true" data-extra="{&quot;poster&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;author&quot;:&quot;&quot;}">你的浏览器不支持 audio 标签</audio></p><p><br/></p><p><audio src="https://test-hydrogen-file.ifanrusercontent.com/1l29MU4EDUK4JR6h.mp3" controls="true" loop="true" data-extra="{&quot;poster&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;author&quot;:&quot;&quot;}">你的浏览器不支持 audio 标签</audio></p><p></p><p><br/></p><p><br/></p><p><br/></p><p>autoplay = true</p><p><br/></p><p><audio src="http://m10.music.126.net/20210126154331/0068f3964dffafedbf3a5b71a30aa688/ymusic/3a36/0ad2/b299/9928835b6981dba5d6066d853ac6d72d.mp3" controls="true" autoplay="true" loop="true" data-extra="{&quot;poster&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;author&quot;:&quot;&quot;}">你的浏览器不支持 audio 标签</audio></p><p><br/></p><p><br/></p>'
     })
   }
 })

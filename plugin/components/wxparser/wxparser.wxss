@@ -266,3 +266,45 @@
   line-height: 40rpx;
   overflow-x: auto;
 }
+
+/* audio */
+.audio-container{
+  display: flex;
+  border: 1rpx solid rgb(219, 216, 216);
+  border-radius: 4rpx;
+}
+.audio-status{
+  position: relative;
+  background: rgb(218, 216, 216);
+}
+.audio-poster{
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+}
+.audio-btn{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+.audio-info{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx 30rpx;
+  color: #999;
+  font-size: 32rpx;
+}
+.audio-author-name{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.audio-author{
+  color: #333;
+  margin-bottom: 15rpx; 
+}
