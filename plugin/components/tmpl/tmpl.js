@@ -86,13 +86,11 @@ function initAudio(data) {
 }
 
 function responseAudioData(instance,src) {
-  let _this = this
-  
-  const richTextNode = _this.data.richTextNode
+  const richTextNode = this.data.richTextNode
   // audio总是独占一行，外层包裹一个p元素，所以只需遍历两次即可
   richTextNode.forEach((item) => {
     if (!item.nodes || item.node.length === 0) return false
-    
+
     item.nodes.forEach((subItem) => {
       if (subItem.tag !== 'audio') return false
 
@@ -102,12 +100,13 @@ function responseAudioData(instance,src) {
       }
 
       subItem.isPlaying = !subItem.isPlaying
-      clearInterval(_this.timer)
-      _this.timer = null
+      clearInterval(this.timer)
+      this.timer = null
       if (subItem.isPlaying) {
-        _this.timer = setInterval(() => {
+        this.timer = setInterval(() => {
           subItem.currentTime = utils.formatterTime(instance.currentTime)
-          _this.setData({
+
+          this.setData({
             richTextNode
           })
         }, 1000)
@@ -121,8 +120,8 @@ function responseAudioData(instance,src) {
     })
   })
 
-  _this.setData({
-    richTextNode: richTextNode
+  this.setData({
+    richTextNode
   })
 }
 
