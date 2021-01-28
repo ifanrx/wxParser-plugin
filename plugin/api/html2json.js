@@ -1,9 +1,9 @@
-const utils = require('./utils');
-const elements = require('./elements');
-const codeTransformation = require('./codeTransformation');
-const htmlParser = require('./htmlparser');
+const utils = require('./utils')
+const elements = require('./elements')
+const codeTransformation = require('./codeTransformation')
+const htmlParser = require('./htmlparser')
 
-let olTagCount = [];
+let olTagCount = []
 
 /**
  * 移除文档头信息
@@ -11,8 +11,8 @@ let olTagCount = [];
  * @return {String}
  */
 const removeDOCTYPE = (str) => {
-  return str.replace(/<\?xml.*\?>\n/, '').replace(/<.*!doctype.*\>\n/, '').replace(/<.*!DOCTYPE.*\>\n/, '');
-};
+  return str.replace(/<\?xml.*\?>\n/, '').replace(/<.*!doctype.*\>\n/, '').replace(/<.*!DOCTYPE.*\>\n/, '')
+}
 
 /**
  * HTML 内容转化为 JSON 格式的对象
@@ -20,18 +20,19 @@ const removeDOCTYPE = (str) => {
  * @return {Object}
  */
 const html2json = html => {
-  html = removeDOCTYPE(html);
+  html = removeDOCTYPE(html)
 
   // 节点缓冲区，与 htmlparser.js 中的 stack 对应，只存储非自闭和标签
   // 比如 <span></span>，而非 <img src="#"> 等
-  let bufferNodes = [];
-  let nodeStyles = [];
+  let bufferNodes = []
+  let nodeStyles = []
   // html2json 结果
   let results = {
     nodes: [],
     images: [],
-    imageUrls: []
-  };
+    imageUrls: [],
+    audios: [],
+  }
 
   /**
    * 把节点放到父节点的 nodes 列表
@@ -39,18 +40,18 @@ const html2json = html => {
    */
   const putNode2ParentNodeList = (node) => {
     if (bufferNodes.length === 0) { // 表明关闭此 node 时，不存在任何未关闭标签，也就是不存在父元素，所以直接挂到根节点即可
-      results.nodes.push(node);
+      results.nodes.push(node)
     } else {
       // 如果节点缓冲区还有节点，子节点会不断的被放到该子节点的父节点下，形成一个嵌套引用的节点对象。
       // 直到缓冲区没有节点，此时组装起来的整个嵌套引用节点对象会被放到根节点的 results.nodes 下
-      let parent = bufferNodes[0]; // 取该 node 的父级节点
+      let parent = bufferNodes[0] // 取该 node 的父级节点
       if (parent.nodes === undefined) {
-        parent.nodes = [];
+        parent.nodes = []
       }
       node.parent = parent.tag
-      parent.nodes.push(node);
+      parent.nodes.push(node)
     }
-  };
+  }
 
   // 开始解析 HTML
   // 核心思路：
@@ -74,42 +75,42 @@ const html2json = html => {
       let node = {
         node: 'element',
         tag: tag
-      };
-
-      if (elements.block[tag]) {
-        node.tagType = 'block';
-      } else if (elements.inline[tag]) {
-        node.tagType = 'inline';
-      } else if (elements.closeSelf[tag]) {
-        node.tagType = 'closeSelf';
       }
 
-      nodeStyles = [];
+      if (elements.block[tag]) {
+        node.tagType = 'block'
+      } else if (elements.inline[tag]) {
+        node.tagType = 'inline'
+      } else if (elements.closeSelf[tag]) {
+        node.tagType = 'closeSelf'
+      }
+
+      nodeStyles = []
 
       if (attrs.length) {
-        node.attr = {};
+        node.attr = {}
         attrs.map((item) => {
           if (item.name === 'style') { // 对 style 做单独处理，因为后面会根据 tag 添加更多的 style
             if (nodeStyles.indexOf(item.value) === -1) {
-              nodeStyles.push(item.value);
+              nodeStyles.push(item.value)
             }
           }
           if (item.name === 'color') {
-            nodeStyles.push('color: ' + item.value);
+            nodeStyles.push('color: ' + item.value)
           }
           if (node.tag === 'font' && item.name === 'size') {
-            nodeStyles.push('font-size: ' + utils.getFontSizeByAttribsSize(item.value));
+            nodeStyles.push('font-size: ' + utils.getFontSizeByAttribsSize(item.value))
           }
 
           // 特殊属性做转换
           if (item.name === 'class') {
-            node.classStr = item.value;
+            node.classStr = item.value
           }
 
-          node.attr[item.name] = item.value; // 重复的属性，后面的会覆盖前面的
-        });
+          node.attr[item.name] = item.value // 重复的属性，后面的会覆盖前面的
+        })
 
-        node.styleStr = nodeStyles.join(' ');
+        node.styleStr = nodeStyles.join(' ')
       }
 
       if (node.tag == 'ol' || node.tag == 'ul') {
@@ -124,9 +125,9 @@ const html2json = html => {
 
       // img 标签 添加额外数据
       if (node.tag === 'img') {
-        node.imgIndex = results.images.length;
-        results.images.push(node);
-        results.imageUrls.push(node.attr.src);
+        node.imgIndex = results.images.length
+        results.images.push(node)
+        results.imageUrls.push(node.attr.src)
       }
 
       if (node.tag === 'video' || node.tag === 'audio') {
@@ -142,21 +143,32 @@ const html2json = html => {
       if (node.tag === 'audio') {
         let params = node.attr['data-extra']
         if (params) {
-           params = params.replace(new RegExp('&quot;', 'g'), '"');
-           params = JSON.parse(params)
-           node.attr.poster = params.poster
-           node.attr.name = params.name
-           node.attr.author = params.author
+          params = params.replace(new RegExp('&quot;', 'g'), '"')
+          params = JSON.parse(params)
+          node.attr.poster = params.poster
+          node.attr.name = params.name
+          node.attr.author = params.author
         }
+
+        // 音频播放/暂停的标识
+        node.isPlaying = false
+        // 当前播放位置
+        node.currentTime = '00:00'
+        // controls为false，隐藏此元素
+        if (!node.attr.controls) {
+          node.styleStr = 'display:none'
+        }
+
+        results.audios.push(node)
       }
 
       if (isUnary) {
         // 自闭合标签，比如 <img src="https://github.com/pacochan/wxParser.png"/>
         // 这种类型不会进入 end 函数或者 text 函数处理，在 start 函数放入到父元素的 nodes 列表即可
-        putNode2ParentNodeList(node);
+        putNode2ParentNodeList(node)
       } else {
         // 只要有非自闭＆标签就往缓冲区保存节点，等待关闭
-        bufferNodes.unshift(node);
+        bufferNodes.unshift(node)
       }
     },
     /**
@@ -164,10 +176,10 @@ const html2json = html => {
      * @param  {String} tag 标签名称
      */
     end: function (tag) {
-      let node = bufferNodes.shift(); // 取出缓冲区的第一个的未关闭标签，也就是与该结束标签对应的标签
+      let node = bufferNodes.shift() // 取出缓冲区的第一个的未关闭标签，也就是与该结束标签对应的标签
 
       if (node.tag !== tag) {
-        throw new Error('不匹配的关闭标签');
+        throw new Error('不匹配的关闭标签')
       }
 
       if (node.tag == 'ol' || node.tag == 'ul') {
@@ -189,7 +201,7 @@ const html2json = html => {
         }
       }
 
-      putNode2ParentNodeList(node);
+      putNode2ParentNodeList(node)
     },
     /**
      * 处理文本内容
@@ -199,21 +211,21 @@ const html2json = html => {
       let node = {
         node: 'text',
         text: codeTransformation.transform(text),
-      };
+      }
 
-      putNode2ParentNodeList(node);
+      putNode2ParentNodeList(node)
     },
     /**
      * 处理评论内容
      * @param  {String} content 注释内容
      */
-    comment: function (content) {},
-  });
+    comment: function () {},
+  })
 
-  return results;
+  return results
 
-};
+}
 
 module.exports = {
   html2json
-};
+}

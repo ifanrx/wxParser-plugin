@@ -1,0 +1,16 @@
+{
+  "name": "wxParser-plugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ifanrx/wxParser-plugin.git",
+  "author": "liuni <liuni@ifanr.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint plugin/api/*.js plugin/components/**/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.22.0"
+  }
+}

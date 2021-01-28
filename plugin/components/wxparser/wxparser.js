@@ -23,19 +23,24 @@ Component({
       this.setData({ richTextNode: parsedData.nodes.map(item => {
         if (item.tag === 'img') {
           item.imageLazyLoad = imageLazyLoad
-        }
+        }     
         return item
       })})
       tmpl.init.call(this, { imgUrls: parsedData.imageUrls })
+
+      if(parsedData.audios.length > 0){
+        tmpl.initAudio.call(this,{audios: parsedData.audios})
+      }
     }
   },
 
   options: {
-    styleIsolation: 'apply-shared',
+    styleIsolation: 'apply-shared'
   },
 
   data: {
-    richTextNode: ''
+    richTextNode: '',
+    timer: null 
   },
 
   lifetimes: {
